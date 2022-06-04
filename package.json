@@ -1,7 +1,6 @@
 {
-  "name": "instaclone",
-  "version": "1.0.0",
-  "description": "",
+  "name": "museum",
+  "version": "0.1.0",
   "main": "index.js",
   "engines": {
     "node": "12.14.1",
@@ -16,15 +15,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sandermoen/instaclone.git"
+    "url": "git+https://github.com/phanect/museum.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Jumpei Ogawa (https://phanective.org)",
+  "contributors": [
+    "Sander Moen (https://github.com/Sandermoen)"
+  ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Sandermoen/instaclone/issues"
+    "url": "https://github.com/phanect/museum/issues"
   },
-  "homepage": "https://github.com/Sandermoen/instaclone#readme",
+  "homepage": "https://github.com/phanect/museum#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
