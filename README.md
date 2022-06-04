@@ -20,8 +20,6 @@ git clone https://github.com/phanect/museum.git
 $ npm install && cd client && npm install
 ```
 
-> Set up a MongoDB database either locally or provision a free database with <a href='https://www.mongodb.com/cloud/atlas'>`MongoDB Atlas`</a>
-
 > Create a free <a href="https://cloudinary.com/">`Cloudinary account`</a>
 
 > Create a <a href='https://github.com/settings/developers'>`GitHub OAuth app`</a>
