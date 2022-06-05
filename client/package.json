@@ -42,8 +42,8 @@
     "redux-logger": "^3.0.6"
   },
   "engines": {
-    "node": "12.14.1",
-    "npm": "6.13.7"
+    "node": "18.x",
+    "npm": "8.x"
   },
   "eslintConfig": {
     "extends": "react-app"
