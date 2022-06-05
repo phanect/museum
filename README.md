@@ -2,31 +2,24 @@
 
 A package manager for assets
 
-## Installation - Development
+## Set up local environment
 
-### Clone
-
-Clone this repo to your local machine.
+- Clone this repo to your local machine.
 
 ```shell
 git clone https://github.com/phanect/museum.git
 ```
 
-### Setup
-
-> Install npm dependencies using npm install
+- Install npm dependencies using npm install
 
 ```shell
 $ npm install && cd client && npm install
 ```
 
-> Create a free <a href="https://cloudinary.com/">`Cloudinary account`</a>
-
-> Create a <a href='https://github.com/settings/developers'>`GitHub OAuth app`</a>
-
-> Create a .env file in the root directory
-
-> Set up required environment variables
+- Create a free [Cloudinary account](https://cloudinary.com/)
+- Create a [GitHub OAuth app](https://github.com/settings/developers)
+- Create a .env file in the root directory
+- Set up required environment variables
 
 ```javascript
 MONGO_URI= // mongodb://localhost:27017/instaclone
@@ -44,10 +37,8 @@ GITHUB_CLIENT_SECRET= // Client secret for GitHub OAuth app
 MODERATECONTENT_API_KEY= // Free API key from https://moderatecontent.com
 ```
 
-> In the root directory run both the backend and the front end with the following command
+- In the project root, run the backend, the frontend, and the DB server with the following command:
 
 ```shell
 $ npm run dev
 ```
-
-The app should launch automatically, enjoy playing around 😄
