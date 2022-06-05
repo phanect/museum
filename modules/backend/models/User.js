@@ -93,6 +93,7 @@ UserSchema.pre('save', async function (next) {
       await mongoose.model('Followers').create({ user: this._id });
       await mongoose.model('Following').create({ user: this._id });
     } catch (err) {
+      console.error(err);
       return next((err.statusCode = 400));
     }
   }
