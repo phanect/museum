@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, Redirect } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 import NewPost from '../../components/NewPost/NewPost';
 
@@ -8,7 +8,7 @@ const NewPostPage = ({ location }) => {
   return location.state && location.state.file ? (
     <NewPost file={location.state.file} hide={() => navigate('/')} />
   ) : (
-    <Redirect to="/" />
+    <Navigate to="/" replace />
   );
 };
 
