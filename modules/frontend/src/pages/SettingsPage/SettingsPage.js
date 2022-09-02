@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { NavLink, Switch } from 'react-router-dom';
+import { NavLink, Routes } from 'react-router-dom';
 
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import Card from '../../components/Card/Card';
@@ -32,14 +32,14 @@ const SettingsPage = () => (
           </NavLink>
         </ul>
         <article className="settings-page__content">
-          <Switch>
+          <Routes>
             <ProtectedRoute path="/settings/edit">
               <EditProfileForm />
             </ProtectedRoute>
             <ProtectedRoute path="/settings/password">
               <ChangePasswordForm />
             </ProtectedRoute>
-          </Switch>
+          </Routes>
         </article>
       </Card>
     </main>

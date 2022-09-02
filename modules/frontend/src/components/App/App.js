@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment, Suspense, lazy } from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useTransition } from 'react-spring';
 
@@ -100,7 +100,7 @@ export function UnconnectedApp({
               </Alert>
             )
         )}
-        <Switch>
+        <Routes>
           <Route path="/login" component={LoginPage} />
           <Route path="/signup" component={SignUpPage} />
           <ProtectedRoute exact path="/" component={HomePage} />
@@ -112,7 +112,7 @@ export function UnconnectedApp({
           <Route path="/post/:postId" component={PostPage} />
           <ProtectedRoute path="/confirm/:token" component={ConfirmationPage} />
           <Route component={NotFoundPage} />
-        </Switch>
+        </Routes>
         {location.pathname !== '/' && <Footer />}
         {location.pathname !== '/login' &&
           location.pathname !== '/signup' &&

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -18,7 +18,7 @@ const ExplorePage = ({ token, showAlert, showModal, match }) => {
   }, []);
 
   return (
-    <Switch>
+    <Routes>
       <ProtectedRoute exact path={match.url + '/'}>
         <main className="explore-page grid">
           <SuggestedPosts
@@ -38,7 +38,7 @@ const ExplorePage = ({ token, showAlert, showModal, match }) => {
         </main>
       </ProtectedRoute>
       <Route component={NotFoundPage} />
-    </Switch>
+    </Routes>
   );
 };
 
