@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { selectCurrentUser } from '../../redux/user/userSelectors';
 
@@ -18,9 +18,7 @@ import Icon from '../Icon/Icon';
 
 const Header = memo(({ currentUser }) => {
   const [shouldMinimizeHeader, setShouldMinimizeHeader] = useState(false);
-  const {
-    location: { pathname },
-  } = useHistory();
+  const location = useLocation();
 
   // Shrink header height and remove logo on scroll
   useScrollPositionThrottled(({ currentScrollPosition }) => {
@@ -51,14 +49,14 @@ const Header = memo(({ currentUser }) => {
             <Fragment>
               <Link to="/explore">
                 <Icon
-                  icon={pathname === '/explore' ? 'compass' : 'compass-outline'}
+                  icon={location.pathname === '/explore' ? 'compass' : 'compass-outline'}
                 />
               </Link>
               <NotificationButton />
               <Link to={'/' + currentUser.username}>
                 <Icon
                   icon={
-                    pathname === '/' + currentUser.username
+                    location.pathname === '/' + currentUser.username
                       ? 'person-circle'
                       : 'person-circle-outline'
                   }

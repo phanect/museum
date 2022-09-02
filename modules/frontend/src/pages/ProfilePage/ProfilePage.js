@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { selectCurrentUser, selectToken } from '../../redux/user/userSelectors';
 
@@ -26,7 +26,7 @@ import EmptyProfile from './EmptyProfile';
 
 const ProfilePage = ({ currentUser, token, showModal, hideModal }) => {
   const { username } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(profileReducer, INITIAL_STATE);
 
   const follow = async () => {
@@ -91,7 +91,7 @@ const ProfilePage = ({ currentUser, token, showModal, hideModal }) => {
 
   const handleClick = (postId) => {
     if (window.outerWidth <= 600) {
-      history.push(`/post/${postId}`);
+      navigate(`/post/${postId}`);
     } else {
       showModal(
         {

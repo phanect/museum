@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { githubSignInStart } from '../../redux/user/userActions';
 import { selectCurrentUser } from '../../redux/user/userSelectors';
@@ -10,9 +10,9 @@ import { selectCurrentUser } from '../../redux/user/userSelectors';
 import LoginCard from '../../components/LoginCard/LoginCard';
 
 const LoginPage = ({ currentUser, githubSignInStart }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { search } = useLocation();
-  if (currentUser) history.push('/');
+  if (currentUser) navigate('/');
   const params = new URLSearchParams(search);
   const code = params.get('code');
   const authState = params.get('state');

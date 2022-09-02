@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { showModal } from '../../redux/modal/modalActions';
 import { signOut } from '../../redux/user/userActions';
@@ -8,7 +8,7 @@ import { signOut } from '../../redux/user/userActions';
 import Icon from '../Icon/Icon';
 
 const SettingsButton = ({ showModal, signOut }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <Icon
       icon="aperture-outline"
@@ -19,13 +19,13 @@ const SettingsButton = ({ showModal, signOut }) => {
             options: [
               {
                 text: 'Change Password',
-                onClick: () => history.push('/settings/password'),
+                onClick: () => navigate('/settings/password'),
               },
               {
                 text: 'Log Out',
                 onClick: () => {
                   signOut();
-                  history.push('/');
+                  navigate('/');
                 },
               },
             ],

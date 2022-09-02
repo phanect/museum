@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment, Suspense, lazy } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useTransition } from 'react-spring';
 
@@ -45,9 +45,7 @@ export function UnconnectedApp({
   fetchNotificationsStart,
 }) {
   const token = localStorage.getItem('token');
-  const {
-    location: { pathname },
-  } = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     if (token) {
@@ -92,7 +90,7 @@ export function UnconnectedApp({
     }
     return (
       <Fragment>
-        {pathname !== '/login' && pathname !== '/signup' && <Header />}
+        {location.pathname !== '/login' && location.pathname !== '/signup' && <Header />}
         {renderModals()}
         {transitions.map(
           ({ item, props, key }) =>
@@ -109,16 +107,16 @@ export function UnconnectedApp({
           <ProtectedRoute path="/settings" component={SettingsPage} />
           <ProtectedRoute path="/activity" component={ActivityPage} />
           <ProtectedRoute path="/new" component={NewPostPage} />
-          <ProtectedRoute path="/explore" component={ExplorePage} />
+          <Route path="/explore" component={ExplorePage} />
           <Route exact path="/:username" component={ProfilePage} />
           <Route path="/post/:postId" component={PostPage} />
           <ProtectedRoute path="/confirm/:token" component={ConfirmationPage} />
           <Route component={NotFoundPage} />
         </Switch>
-        {pathname !== '/' && <Footer />}
-        {pathname !== '/login' &&
-          pathname !== '/signup' &&
-          pathname !== '/new' &&
+        {location.pathname !== '/' && <Footer />}
+        {location.pathname !== '/login' &&
+          location.pathname !== '/signup' &&
+          location.pathname !== '/new' &&
           currentUser && <MobileNav currentUser={currentUser} />}
       </Fragment>
     );

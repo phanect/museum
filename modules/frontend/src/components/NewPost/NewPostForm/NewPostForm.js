@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import {
   selectToken,
@@ -31,7 +31,8 @@ const NewPostForm = ({
   const [caption, setCaption] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const history = useHistory();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleClick = async (event) => {
     event.preventDefault();
@@ -45,10 +46,10 @@ const NewPostForm = ({
       const post = await createPost(formData, token);
       setLoading(false);
       hide();
-      if (history.location.pathname === '/') {
+      if (location.pathname === '/') {
         addPost(post);
       } else {
-        history.push('/');
+        navigate('/');
       }
     } catch (err) {
       setLoading(false);

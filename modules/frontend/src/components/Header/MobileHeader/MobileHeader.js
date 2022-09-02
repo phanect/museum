@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { selectCurrentUser } from '../../../redux/user/userSelectors';
 
@@ -10,7 +10,7 @@ import Button from '../../Button/Button';
 import TextButton from '../../Button/TextButton/TextButton';
 
 const MobileHeader = ({ children, backArrow, style, show, currentUser }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <header
       style={{ ...style, display: `${show && 'grid'}` }}
@@ -20,7 +20,7 @@ const MobileHeader = ({ children, backArrow, style, show, currentUser }) => {
         <Fragment>
           {backArrow && (
             <Icon
-              onClick={() => history.goBack()}
+              onClick={() => navigate(-1)}
               style={{ cursor: 'pointer' }}
               icon="chevron-back"
             />
@@ -34,12 +34,12 @@ const MobileHeader = ({ children, backArrow, style, show, currentUser }) => {
           </h3>
           <div style={{ gridColumn: '-1' }}>
             <Button
-              onClick={() => history.push('/')}
+              onClick={() => navigate('/')}
               style={{ marginRight: '1rem' }}
             >
               Log In
             </Button>
-            <TextButton onClick={() => history.push('/signup')} bold blue>
+            <TextButton onClick={() => navigate('/signup')} bold blue>
               Sign Up
             </TextButton>
           </div>

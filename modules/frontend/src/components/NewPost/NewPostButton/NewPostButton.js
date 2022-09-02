@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { showModal, hideModal } from '../../../redux/modal/modalActions';
@@ -9,7 +9,7 @@ import Icon from '../../Icon/Icon';
 const NewPostButton = ({ showModal, hideModal, plusIcon, children, style }) => {
   const [file, setFile] = useState(undefined);
   const fileInputRef = useRef();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (file) {
@@ -19,13 +19,13 @@ const NewPostButton = ({ showModal, hideModal, plusIcon, children, style }) => {
           'NewPost/NewPost'
         );
       } else {
-        history.push('/new', { file });
+        navigate('/new', { file });
       }
       // Resetting the input value so you are able to
       // use the same file twice
       fileInputRef.current.value = '';
     }
-  }, [file, showModal, hideModal, history]);
+  }, [file, showModal, hideModal, navigate]);
   return (
     <Fragment>
       <label

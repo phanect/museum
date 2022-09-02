@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import classNames from 'classnames';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { selectToken, selectCurrentUser } from '../../redux/user/userSelectors';
 
@@ -38,7 +38,7 @@ const PostDialog = ({
 }) => {
   const commentsRef = useRef();
   const [state, dispatch] = useReducer(postDialogReducer, INITIAL_STATE);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const fetching = loading !== undefined ? loading : state.fetching;
 
@@ -58,7 +58,7 @@ const PostDialog = ({
             const response = await getPost(postId);
             dispatch({ type: 'FETCH_POST_SUCCESS', payload: response });
           } catch (err) {
-            history.push('/');
+            navigate('/');
             dispatch({ type: 'FETCH_POST_FAILURE', payload: err });
           }
         })();
@@ -74,7 +74,7 @@ const PostDialog = ({
         );
       }
     };
-  }, [postId, history, loading, postData]);
+  }, [postId, navigate, loading, postData]);
 
   const fetchAdditionalComments = async () => {
     try {
@@ -178,7 +178,7 @@ const PostDialog = ({
                     text: 'Go to post',
                     onClick: () => {
                       hideModal('PostDialog/PostDialog');
-                      history.push(`/post/${postId}`);
+                      navigate(`/post/${postId}`);
                     },
                   },
                   {
@@ -205,7 +205,7 @@ const PostDialog = ({
                               warning: true,
                               onClick: () => {
                                 handleDeletePost();
-                                history.push('/' + currentUser.username);
+                                navigate('/' + currentUser.username);
                               },
                             },
                           ]

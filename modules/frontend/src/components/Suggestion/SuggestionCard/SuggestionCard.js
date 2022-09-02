@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Avatar from '../../Avatar/Avatar';
 
 const SuggestionCard = ({ avatar, username, fullName, posts, children }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <div className="suggestion-card">
       <Avatar
-        onClick={() => history.push('/' + username)}
+        onClick={() => navigate('/' + username)}
         className="avatar--large mb-sm"
         imageSrc={avatar}
       />
