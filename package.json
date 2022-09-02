@@ -28,7 +28,7 @@
     "@nrwl/cli": "14.4.2",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "14.4.2",
-    "concurrently": "^7.2.1",
+    "concurrently": "^7.3.0",
     "nx": "14.4.2"
   },
   "engines": {
