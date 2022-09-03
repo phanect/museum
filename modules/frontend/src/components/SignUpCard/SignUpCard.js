@@ -88,6 +88,8 @@ const SignUpCard = ({ signUpStart, error, fetching }) => {
                 {formik.errors[field]}
               </p>
             );
+          } else {
+            return "";
           }
         })}
         <form className="form-card__form" onSubmit={formik.handleSubmit}>
