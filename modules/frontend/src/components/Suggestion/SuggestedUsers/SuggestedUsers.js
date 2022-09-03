@@ -25,7 +25,7 @@ const SuggestedUsers = ({ token, showAlert, card, style, max }) => {
         showAlert(err.message);
       }
     })();
-  }, [token, showAlert]);
+  }, [ max, token, showAlert ]);
 
   const renderUsers = () => {
     if (users) {

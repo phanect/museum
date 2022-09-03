@@ -35,7 +35,7 @@ const NotificationButton = ({
         setTimeout(() => setShowNotificationPopup(false), 10000)
       );
     }
-  }, [notificationState.unreadCount]);
+  }, [ notificationPopupTimeout, notificationState.unreadCount, showNotificationPopup ]);
 
   useEffect(() => {
     if (showNotifications) {
