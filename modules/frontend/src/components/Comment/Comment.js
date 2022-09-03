@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import { formatDateDistance } from '../../utils/timeUtils';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import Linkify from 'linkifyjs/react';
-import * as linkify from 'linkifyjs';
-import mention from 'linkifyjs/plugins/mention';
-import hashtag from 'linkifyjs/plugins/hashtag';
+import Linkify from 'linkify-react';
+import "linkify-plugin-hashtag";
+import "linkify-plugin-mention";
 
 import { linkifyOptions } from '../../utils/linkifyUtils';
 
@@ -25,9 +24,6 @@ import {
 import Avatar from '../Avatar/Avatar';
 import PulsatingIcon from '../Icon/PulsatingIcon/PulsatingIcon';
 import CommentReply from './CommentReply/CommentReply';
-
-mention(linkify);
-hashtag(linkify);
 
 const Comment = ({
   comment,

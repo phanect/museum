@@ -20,13 +20,10 @@ import UsersListSkeleton from '../../UsersList/UsersListSkeleton/UsersListSkelet
 import Icon from '../../Icon/Icon';
 import FollowButton from '../../Button/FollowButton/FollowButton';
 import Divider from '../../Divider/Divider';
-import Linkify from 'linkifyjs/react';
-import * as linkify from 'linkifyjs';
-import mention from 'linkifyjs/plugins/mention';
+import Linkify from 'linkify-react';
+import "linkify-plugin-mention";
 
 import { linkifyOptions } from '../../../utils/linkifyUtils';
-
-mention(linkify);
 
 const NotificationFeed = ({
   notifications,
