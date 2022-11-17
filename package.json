@@ -29,7 +29,7 @@
     "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "14.4.2",
     "concurrently": "^7.2.1",
-    "nx": "14.4.2"
+    "nx": "15.1.1"
   },
   "engines": {
     "node": "16.x",
